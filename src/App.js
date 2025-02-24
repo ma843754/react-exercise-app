@@ -6,12 +6,12 @@ import RunningExercise from "./components/RunningExercise";
 function App() {
   const [selectedExercise, setSelectedExercise] = useState(null);
 
-  // List of exercises
   const exercises = [
     { name: "Push-Ups", type: "repetition" },
     { name: "Jumping Jacks", type: "duration" },
     { name: "Squats", type: "repetition" },
     { name: "Plank", type: "duration" },
+    { name: "Running", type: "running" },  // New Running Exercise
   ];
 
   return (
@@ -40,9 +40,12 @@ function App() {
           <h2>{selectedExercise.name}</h2>
           {selectedExercise.type === "repetition" ? (
             <RepetitionExercise name={selectedExercise.name} />
-          ) : (
+          ) : selectedExercise.type === "duration" ? (
             <DurationExercise name={selectedExercise.name} />
-          )}
+          ) : selectedExercise.type === "running" ? (
+            <RunningExercise name={selectedExercise.name} /> // Corrected condition
+          ) : null}
+
           <button onClick={() => setSelectedExercise(null)}>Back</button>
         </div>
       )}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RepetitionExercise from "./components/RepetitionExercise";
 import DurationExercise from "./components/DurationExercise";
+import RunningExercise from "./components/RunningExercise";
 
 function App() {
   const [selectedExercise, setSelectedExercise] = useState(null);
